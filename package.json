@@ -1,11 +1,10 @@
 {
-  "name": "discord-music-bot",
-  "version": "0.1.0a",
-  "description": "A simple discord bot",
+  "name": "soundboard-bot",
+  "version": "0.1.0",
+  "description": "ae",
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack",
-    "build:prod": "cross-env NODE_ENV=production webpack",
-    "test": "echo \"No test specified!\""
+    "build:prod": "cross-env NODE_ENV=production webpack"
   },
   "author": "wiisportsresorts",
   "license": "MIT",
