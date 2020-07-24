@@ -4,7 +4,8 @@
   "description": "ae",
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack",
-    "build:prod": "cross-env NODE_ENV=production webpack"
+    "build:prod": "cross-env NODE_ENV=production webpack",
+    "start": "node dist/main"
   },
   "author": "wiisportsresorts",
   "license": "MIT",
