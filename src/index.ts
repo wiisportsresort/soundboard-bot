@@ -1,11 +1,15 @@
 import * as Discord from 'discord.js';
-import { Store } from './store';
-import { GuildConfig, GuildQueue, Sound, CmdArgs } from './types';
-import { commands } from './commands';
 import * as dotenv from 'dotenv';
-// import * as path from 'path';
+import * as fse from 'fs-extra';
+import { commands } from './commands';
+import { Store } from './store';
+import { GuildConfig, GuildQueue, Sound } from './types';
+import { resolvePath } from './util';
 
 dotenv.config();
+
+fse.mkdirp(resolvePath('data'));
+fse.mkdirp(resolvePath('sounds'));
 
 const client = new Discord.Client();
 
