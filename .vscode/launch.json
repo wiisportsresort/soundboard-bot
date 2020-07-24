@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "name": "dev",
+      "program": "${workspaceFolder}/dist/main.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "preLaunchTask": "build:dev",
+      "type": "node"
+    },
+    {
+      "name": "prod",
+      "program": "${workspaceFolder}/dist/main.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "preLaunchTask": "build:prod",
+      "type": "node"
+    }
+  ]
+}

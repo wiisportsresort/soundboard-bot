@@ -1,0 +1,15 @@
+{
+  "exclude": ["./dist"],
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["ESNext"],
+    "strict": true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "esModuleInterop": false,
+    "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true,
+    "sourceMap": true
+  }
+}
