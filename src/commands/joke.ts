@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { Message } from 'discord.js';
-import * as _ from 'lodash';
+import * as he from 'he';
 import { Command } from '.';
 import { CmdArgs } from '../types';
 
@@ -20,7 +20,7 @@ export class CommandJoke implements Command {
 
           const text = cheerio.load(res.data)('#loading-text').html();
           if (!text) return reject('no text in #loading-text');
-          resolve(_.unescape(text.replace('\n', '').replace(/<\/?code>/, '`')));
+          resolve(he.decode(text.replace('\n', '').replace(/<\/?code>/g, '`')));
         })
         .catch(err => reject(err));
     });
