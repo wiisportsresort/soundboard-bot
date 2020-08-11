@@ -10,14 +10,22 @@ export class CommandJoke implements Command {
     usage: 'joke',
     description: 'Get a joke from Codepen',
   };
-  getJoke() {
-    return new Promise<string>(async (resolve, reject) => {
-      const res = await axios('https://codepen.io/pen/').catch(err => reject(err));
+  getJoke(): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      axios('https://codepen.io/pen/')
+        .then(res => {
+          if (!res) return reject();
+          if (res.status !== 200) return reject();
 
-      if (!res) return reject();
-      if (res.status !== 200) return reject();
-
-      resolve(cheerio.load(res.data)('#loading-text').html()?.replace('\n', ''));
+          resolve(
+            cheerio
+              .load(res.data)('#loading-text')
+              .html()
+              ?.replace('\n', '')
+              .replace(/<\/?code>/, '`')
+          );
+        })
+        .catch(err => reject(err));
     });
   }
   async executor({ msg }: CmdArgs): Promise<void | Message> {
