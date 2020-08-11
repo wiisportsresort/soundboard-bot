@@ -1,13 +1,14 @@
 import { Message } from 'discord.js';
 import { CmdArgs } from '../types';
+import { CommandAbout } from './about';
 import { CommandAdd } from './add';
 import { CommandHelp } from './help';
+import { CommandJoke } from './joke';
 import { CommandLs } from './ls';
 import { CommandMv } from './mv';
 import { CommandPlay } from './play';
 import { CommandPrefix } from './prefix';
 import { CommandRm } from './rm';
-import { CommandAbout } from './about';
 import { CommandSkip } from './skip';
 import { CommandStop } from './stop';
 
@@ -25,6 +26,7 @@ export const commands: Command[] = [
   new CommandAdd(),
   new CommandHelp(),
   new CommandLs(),
+  new CommandJoke(),
   new CommandMv(),
   new CommandPlay(),
   new CommandPrefix(),
