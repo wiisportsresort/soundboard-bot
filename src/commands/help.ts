@@ -20,6 +20,13 @@ export class CommandHelp implements Command {
         inline: false,
       });
     }
-    return cmdArgs.msg.channel.send(embed);
+    try {
+      const dm = await msg.author?.createDM();
+      if (!dm) throw new Error('RuntimeError: DM channel was null');
+      dm?.send(embed);
+      msg.channel.send('yo i dm\'d you the help message gg bro');
+    } catch (err) {
+      msg.channel.send('lmao i couldnt send the dm\n```\n' + err + '\n```');
+    }
   }
 }
